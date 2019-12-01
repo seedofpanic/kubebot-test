@@ -1,15 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
   labels:
-    app: nginx
+    app: mystamps
+  name: mystamps
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: mystamps
   template:
     metadata:
       labels:
-        app: nginx
+        app: mystamps
+    spec:
+      containers:
+        - name: mystamps
+          image: phpcoder/mystamps:latest
